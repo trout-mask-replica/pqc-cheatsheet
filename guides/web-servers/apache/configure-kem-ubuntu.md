@@ -14,12 +14,12 @@ Check available PQC key exchange groups with:
 
 Look for the ones that IETF mentions in it's [draft on PQC](https://datatracker.ietf.org/doc/draft-ietf-uta-pqc-app/). 
 
-For hybrid it's:
+For hybrid it's:  
 X25519MLKEM768  
 SecP256r1MLKEM768  
 SecP384r1MLKEM1024
 
-For pure PQC it's:
+For pure PQC it's:  
 ML-KEM-512  
 ML-KEM-768  
 ML-KEM-1024
