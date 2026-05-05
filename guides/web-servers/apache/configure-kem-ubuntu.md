@@ -14,7 +14,7 @@ Check available PQC key exchange groups with:
 
 Look for the ones that IETF mentions in it's [draft on PQC](https://datatracker.ietf.org/doc/draft-ietf-uta-pqc-app/). 
 
-For hybrid it's:  
+For hybrid (classical + PQC) it's:  
 X25519MLKEM768  
 SecP256r1MLKEM768  
 SecP384r1MLKEM1024
@@ -32,7 +32,7 @@ Navigate to the location of your vhost-files, typically:
 Open the file that holds the ssl-config for your site with a text editor and add the following lines:
 
     SSLProtocol TLSv1.3
-    SSLOpenSSLConfCmd Curves MLKEM512:MLKEM768:MLKEM1024:SecP256r1MLKEM768:X25519MLKEM768:SecP384r1MLKEM102
+    SSLOpenSSLConfCmd Curves MLKEM512:MLKEM768:MLKEM1024:SecP256r1MLKEM768:X25519MLKEM768:SecP384r1MLKEM1024
 
 This will force TLSv1.3, because earlier versions don't have PQC. And the curves will force the use of PQC key exchange groups in TLSv1.3. Remove or add PQC curves per your requirements.
 
@@ -46,6 +46,14 @@ Different ways of validating are possible, for CLI you can run:
     openssl s_client -connect localhost:443
 
 Look for "Negotiated TLS1.3 group" and validate that the negotiated group is one of your PQC curves.
+
+For validating with browsers you can check developer tools. For Edge it's Ctrl + Shift + I and then + (More tools) -> Security.
+
+### Caveats and troubleshooting
+If you're using certbot for getting certs and initial SSL-config your vhost-file will have a line like:  
+Include /etc/letsencrypt/options-ssl-apache.conf
+
+Make sure to comment this one out or edit it's contents to force PQC.
 
 ## Option 2 - using an Ubuntu version without OpenSSL 3.5 as default
 Haven't tried this yet. Worth noting is that it can require building Apache from source and linking it to a non default OpenSSL provider.
