@@ -12,7 +12,7 @@ Check available PQC key exchange groups with:
 
     openssl list -tls-groups -tls1_3
 
-Look for the ones that IETF mentions in it's [draft on PQC].(https://datatracker.ietf.org/doc/draft-ietf-uta-pqc-app/) 
+Look for the ones that IETF mentions in it's [draft on PQC](https://datatracker.ietf.org/doc/draft-ietf-uta-pqc-app/). 
 
 For hybrid it's:
 X25519MLKEM768
