@@ -1,4 +1,9 @@
 # Configure PQC key exchange for Apache on Ubuntu
+## TL;DR
+Add the following to your SSL-config-file:
+
+    SSLProtocol TLSv1.3
+    SSLOpenSSLConfCmd Curves X25519MLKEM768
 
 ## Option 1 - using an Ubuntu version with OpenSSL 3.5 as default
 ### Prerequisites
@@ -51,9 +56,9 @@ For validating with browsers you can check developer tools. For Edge it's Ctrl +
 
 ### Caveats and troubleshooting
 #### Browser support
-If the client doesn't have support for PQC then you need to offer fallback to classical curves/groups. For instance you could add x25519 to your config.  
+If the client doesn't have support for PQC then you need to offer fallback to classical curves/groups. For instance you could add x25519 to your config.
 
-   SSLOpenSSLConfCmd Curves X25519MLKEM768:X25519   
+    SSLOpenSSLConfCmd Curves X25519MLKEM768:X25519   
 
 #### Certbot
 If you're using certbot for getting certs and initial SSL-config your vhost-file will have a line like:  
