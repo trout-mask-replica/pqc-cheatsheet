@@ -37,9 +37,9 @@ Navigate to the location of your vhost-files, typically:
 Open the file that holds the ssl-config for your site with a text editor and add the following lines:
 
     SSLProtocol TLSv1.3
-    SSLOpenSSLConfCmd Curves MLKEM512:MLKEM768:MLKEM1024:SecP256r1MLKEM768:X25519MLKEM768:SecP384r1MLKEM1024
+    SSLOpenSSLConfCmd Curves X25519MLKEM768:SecP256r1MLKEM768:SecP384r1MLKEM1024:MLKEM512:MLKEM768:MLKEM1024
 
-This will force TLSv1.3, because earlier versions don't have PQC. And the curves will force the use of PQC key exchange groups in TLSv1.3. Remove or add PQC curves per your requirements.
+This will force TLSv1.3, because earlier versions don't have PQC. And the curves will force the use of PQC key exchange groups in TLSv1.3. Remove or add PQC curves per your requirements. Note that major browsers only support X25519MLKEM768 out of the PQC-groups, so adding the other ones will have no practical purpose.
 
 Restart Apache to apply new settings:
 
