@@ -64,7 +64,7 @@ If the client doesn't have support for PQC then you need to offer fallback to cl
 If you're using certbot for getting certs and initial SSL-config your vhost-file will have a line like:  
 Include /etc/letsencrypt/options-ssl-apache.conf
 
-Make sure to comment this one out or edit it's contents to force PQC.
+Make sure to comment this one out or edit it's contents to force PQC. If not this will override your settings.
 
 ## Option 2 - using an Ubuntu version without OpenSSL 3.5 as default
 Haven't tried this yet. Worth noting is that it can require building Apache from source and linking it to a non default OpenSSL provider.
