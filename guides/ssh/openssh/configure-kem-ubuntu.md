@@ -40,20 +40,27 @@ This will launch ssh in debug-mode and show information about the connection. Lo
 > debug2: local client KEXINIT proposal
 >
 > debug2: KEX algorithms: sntrup761x25519-sha512@openssh.com [...]
+
 ...to see which key exchange algorithms the client offered, and verify that one of the PQC options were offered. 
  Then look for:
+
 > debug2: peer server KEXINIT proposal
 >
 > debug2: KEX algorithms: mlkem768x25519-sha256,sntrup761x25519-sha512 [...]
 ... to see which key exchange algorithms the server offered, and verify that only PQC options were offered.  
+
 Finally look for:
 > debug3: kex_choose_conf: will use strict KEX ordering
 >
 > debug1: kex: algorithm: sntrup761x25519-sha512@openssh.com
+
 ... to validate that one of the PQC key exchange algorithms were chosen.
 
 ## Caveats and troubleshooting
 If the client runs a version of OpenSSH that's pre 9.0 then the client wont be able to make a connection to a server that exclusively offers the PQC key exchange algorithms. Check version of client through:
+
     ssh -V
+
 And validate that it has PQC key exchange algorithms mlkem768x25519-sha256 or sntrup761x25519-sha512 through:
+
     ssh -Q kex
