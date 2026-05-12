@@ -41,8 +41,9 @@ This will launch ssh in debug-mode and show information about the connection. Lo
 >
 > debug2: KEX algorithms: sntrup761x25519-sha512@openssh.com [...]
 
-...to see which key exchange algorithms the client offered, and verify that one of the PQC options were offered. 
- Then look for:
+...to see which key exchange algorithms the client offered, and verify that one of the PQC options were offered.  
+
+Then look for:
 
 > debug2: peer server KEXINIT proposal
 >
