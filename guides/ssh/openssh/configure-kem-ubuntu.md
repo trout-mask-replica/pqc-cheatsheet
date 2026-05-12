@@ -47,6 +47,7 @@ This will launch ssh in debug-mode and show information about the connection. Lo
 > debug2: peer server KEXINIT proposal
 >
 > debug2: KEX algorithms: mlkem768x25519-sha256,sntrup761x25519-sha512 [...]
+
 ... to see which key exchange algorithms the server offered, and verify that only PQC options were offered.  
 
 Finally look for:
