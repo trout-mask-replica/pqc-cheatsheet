@@ -1,7 +1,8 @@
 # Configure PQC key exchange for OpenSSH on Ubuntu
 ## TL;DR
 Add the following to your sshd_config file:
-    KexAlgorithms mlkem768x25519-sha256,sntrup761x25519-sha512,sntrup761x25519-sha512@openssh.com
+    KexAlgorithms mlkem768x25519-sha256,sntrup761x25519-sha512,sntrup761x25519-sha512@openssh.com  
+    
 ... and make sure sshd isn't launched with other command-line options regarding key exchange algorithms [since this overrides the config file](https://man.openbsd.org/sshd).
 
 ## Prerequisites
