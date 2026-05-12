@@ -34,7 +34,7 @@ Restart ssh to apply new settings:
 ## Validate
 Validate which key exchange algorithms were offered and used through: 
 
-    ssh -vvv \<user\>@\<host\>
+    ssh -vvv <user>@<host>
 
 This will launch ssh in debug-mode and show information about the connection. Look for:
 > debug2: local client KEXINIT proposal
