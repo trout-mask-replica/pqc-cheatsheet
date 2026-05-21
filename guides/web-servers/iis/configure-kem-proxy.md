@@ -16,7 +16,7 @@ Edit the file that contains the config for the site you will use for reverse pro
 
     location / {
 	proxy_pass http://<IIS-PRIVATE-IP>:<PORT>
-}  
+	}  
 
 You will probably want to add other options here such as [proxy_set_header](https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_set_header), but that's out of scope for my purposes (and beyond my knowledge).  
 
