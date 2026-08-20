@@ -1,5 +1,5 @@
 # PQC cheatsheet
-Documentation of my home lab where I was configuring post‑quantum cryptography in common services. Created out of curiosity.
+Documentation about configuring post‑quantum cryptography in common services. Created out of curiosity in my home lab.
 ## About
 Hands on configuration guidance for hybrid PQC key exchange for:
 - OpenSSH
